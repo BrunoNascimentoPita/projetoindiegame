@@ -1138,6 +1138,10 @@ PrefabInstance:
       value: Bandido Leve
       objectReference: {fileID: 0}
     - target: {fileID: 6083674686030711933, guid: b68f647eb21fd894fb0dfbe8b5ade3be, type: 3}
+      propertyPath: DamageValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083674686030711933, guid: b68f647eb21fd894fb0dfbe8b5ade3be, type: 3}
       propertyPath: RangeAttack
       value: 6
       objectReference: {fileID: 0}

@@ -29,6 +29,7 @@ public sealed class PlayerController : MonoBehaviour
     {
         gc = GetComponentInChildren<GroundCheck>();
         gc.OnGrounded += GroundMod;
+        Enemy.GiveDamage += TakeDamage; 
         InitComponents();
     }
     private void Update()
@@ -81,5 +82,18 @@ public sealed class PlayerController : MonoBehaviour
     }
     private void DeactivateAABox() {
         attackBox.enabled = false;
+    }
+    private void TakeDamage(int DamageValue) {
+        Life -= DamageValue;
+        if(Life<=0) {
+            StartCoroutine("Die"); 
+        } else {
+            print("O jogador ainda tem " + Life + " de vida");
+        }
+    }
+    private IEnumerator Die() {
+        ani.SetTrigger("Die");
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject); 
     }
 }

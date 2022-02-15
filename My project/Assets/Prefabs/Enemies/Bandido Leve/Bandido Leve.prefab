@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6083674686030711920}
   - component: {fileID: 6083674686030711921}
   - component: {fileID: 6083674686030711933}
+  - component: {fileID: 4122939939850335364}
   m_Layer: 0
   m_Name: Bandido Leve
   m_TagString: Enemy
@@ -149,5 +150,32 @@ MonoBehaviour:
   Life: 0
   Speed: 0
   RangeAttack: 0
+  AttackCooldown: 2
+  DamageValue: 0
   OnRange: 0
   DistanceToTarget: 0
+  ani: {fileID: 0}
+  playerPosition: {x: 0, y: 0}
+  rb: {fileID: 0}
+  t: {fileID: 0}
+  findTime: 0
+--- !u!95 &4122939939850335364
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6083674686030711926}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b827b242e15bdc24c92336ce5483b11f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

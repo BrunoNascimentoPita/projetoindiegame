@@ -4,40 +4,39 @@ using UnityEngine;
 
 public sealed class LBandit : Enemy
 {
-    private bool ReadyToSearch = true; 
+    private bool ReadyToSearch = true;
     private float findCount;
     [SerializeField]
     private float findTime;
 
-    private void Start() 
+    private void Start()
     {
         InitComponents();
-        Life = 3; 
+        Life = 3;
         Speed = 5;
         AttackArea.DealDamage += TakeDamage;
     }
     private void Update()
     {
-        if (OnRange && DistanceToTarget > 1.5) {
+        if (OnRange && DistanceToTarget > 1.5)
+        {
             Move();
         }
-        if (DistanceToTarget < 1.5F) {
-            StartCoroutine("Search");
+        if (DistanceToTarget < 1 && AttackCooldown > 2)
+        {
+            Attack();
+            AttackCooldown = 0;
         }
         findCount += Time.deltaTime;
+        AttackCooldown += Time.deltaTime; 
     }
-    private void LateUpdate() 
+    private void LateUpdate()
     {
         OnRange = (DistanceToTarget < RangeAttack ? true : false);
-        if (ReadyToSearch) {
-            SearchPlayer(); 
+        if (ReadyToSearch)
+        {
+            SearchPlayer();
         }
-    }
-    public IEnumerator Search() {
-        ReadyToSearch = false;
-        OnRange = false; 
-        yield return new WaitForSeconds(2F);
-        ReadyToSearch = true; 
     }
     private void TakeDamage() {
         Life -= 1;
