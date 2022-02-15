@@ -15,6 +15,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]
     protected float AttackCooldown;
     [SerializeField]
+    protected bool ReadyToSearch = true;
+    [SerializeField]
     protected int   DamageValue;
     [Header("Estados")]
     [SerializeField]
@@ -48,6 +50,7 @@ public abstract class Enemy : MonoBehaviour
     }
     protected void Attack() {
         ani.SetTrigger("IsAttacking");
+        AttackCooldown = 0;
     }
     protected void DealDamage() {
         print("O " + gameObject.name + "causou " + DamageValue + " de dano");

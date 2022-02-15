@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 955404240}
   - component: {fileID: 955404239}
   - component: {fileID: 955404243}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Grid (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 1657148651}
   - component: {fileID: 1657148650}
   - component: {fileID: 1657148649}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tilemap
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -996,17 +996,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3947908625921785523, guid: ad68e9d8a8b8c5e4baacba862db4b8c3, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2228446
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947908625921785523, guid: ad68e9d8a8b8c5e4baacba862db4b8c3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.6980424
+      objectReference: {fileID: 0}
     - target: {fileID: 3947908625921785526, guid: ad68e9d8a8b8c5e4baacba862db4b8c3, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3947908625921785526, guid: ad68e9d8a8b8c5e4baacba862db4b8c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.975
+      value: -2.45
       objectReference: {fileID: 0}
     - target: {fileID: 3947908625921785526, guid: ad68e9d8a8b8c5e4baacba862db4b8c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.044
+      value: -3.057
       objectReference: {fileID: 0}
     - target: {fileID: 3947908625921785526, guid: ad68e9d8a8b8c5e4baacba862db4b8c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1061,6 +1069,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3584778654771386366, guid: b68f647eb21fd894fb0dfbe8b5ade3be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.376
+      objectReference: {fileID: 0}
     - target: {fileID: 6083674686030711921, guid: b68f647eb21fd894fb0dfbe8b5ade3be, type: 3}
       propertyPath: m_Size.x
       value: 0.78107095
@@ -1083,7 +1095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6083674686030711922, guid: b68f647eb21fd894fb0dfbe8b5ade3be, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.4471788
+      value: 6.49
       objectReference: {fileID: 0}
     - target: {fileID: 6083674686030711922, guid: b68f647eb21fd894fb0dfbe8b5ade3be, type: 3}
       propertyPath: m_LocalPosition.y

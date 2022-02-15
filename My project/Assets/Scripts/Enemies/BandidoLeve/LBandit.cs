@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class LBandit : Enemy
+public class LBandit : Enemy
 {
-    private bool ReadyToSearch = true;
-    private float findCount;
+    [Header("Variaveis Internas")]
     [SerializeField]
     private float findTime;
+    [SerializeField]
+    public bool ReadyToAttack;
 
     private void Start()
     {
@@ -18,33 +19,35 @@ public sealed class LBandit : Enemy
     }
     private void Update()
     {
-        if (OnRange && DistanceToTarget > 1.5)
-        {
+        if (OnRange && DistanceToTarget > 1.5){
             Move();
         }
-        if (DistanceToTarget < 1 && AttackCooldown > 2)
-        {
+        if (ReadyToAttack && AttackCooldown > 2){
             Attack();
-            AttackCooldown = 0;
         }
-        findCount += Time.deltaTime;
-        AttackCooldown += Time.deltaTime; 
+        AttackCooldown += Time.deltaTime;
+        
+        if (transform.position.x < playerPosition.x) {
+            Flip(-1); 
+        } else {
+            Flip(1); 
+        }
     }
     private void LateUpdate()
     {
         OnRange = (DistanceToTarget < RangeAttack ? true : false);
-        if (ReadyToSearch)
-        {
-            SearchPlayer();
-        }
+        SearchPlayer();
     }
     private void TakeDamage() {
         Life -= 1;
         if(Life>0){
-            print("O Bandido está com " + Life + " pontos de vida");
+            print("O Bandido esta com " + Life + " pontos de vida");
         } else {
             print("O Bandido morreu");
             Destroy(this.gameObject);
         }
     }
+    private void Flip(int x){
+        transform.localScale = new Vector2(x, transform.localScale.y); 
+    } 
 }
