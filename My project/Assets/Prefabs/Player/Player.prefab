@@ -108,8 +108,8 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &3947908625921785523
 BoxCollider2D:
@@ -124,7 +124,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.045592785, y: 0.6866472}
+  m_Offset: {x: -0.045592785, y: 0.6980424}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -135,7 +135,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.84536743, y: 1.245635}
+  m_Size: {x: 0.84536743, y: 1.2228446}
   m_EdgeRadius: 0
 --- !u!95 &4634598997845772166
 Animator:
@@ -169,13 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2d37a8c0e64da4998add02783841f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
   Life: 3
-  JumpForce: 300
-  rb: {fileID: 0}
-  ani: {fileID: 0}
-  OnGrounded: 1
-  attackBox: {fileID: 7188661289804252218}
+  AttackBox: {fileID: 7188661289804252218}
 --- !u!1 &4821626960241871339
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,13 +272,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4854816126598093709}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.221915, y: 0.1040228}
+  m_Offset: {x: -0.2176944, y: -0.07147521}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -294,7 +289,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9999995, y: 1.3190032}
+  m_Size: {x: 0.9915583, y: 1.1897913}
   m_EdgeRadius: 0
 --- !u!114 &3990089686968823221
 MonoBehaviour:
@@ -308,3 +303,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff11d76ec53da84b99a976e4c2a77e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Obj: {fileID: 0}

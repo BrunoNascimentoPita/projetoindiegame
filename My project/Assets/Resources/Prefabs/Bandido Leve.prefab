@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72334d6ee69dbc4382d02412d09bae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 0
+  Life: 3
   AttackBox: {fileID: 8210586174698192668}
 --- !u!95 &4122939939850335364
 Animator:

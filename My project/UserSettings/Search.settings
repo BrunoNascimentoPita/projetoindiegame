@@ -10,6 +10,9 @@ scopes = {
 	"last_search.7F95D817" = ""
 	"OpenInspectorPreview.7F95D817" = "0"
 	"currentGroup.7F95D817" = "asset"
+	"last_search.4ABD0115" = "Scripts"
+	"OpenInspectorPreview.4ABD0115" = "0"
+	"currentGroup.4ABD0115" = "asset"
 }
 providers = {
 	adb = {
@@ -63,7 +66,7 @@ recentSearches = [
 searchItemFavorites = [
 ]
 savedSearchesSortOrder = 0
-showSavedSearchPanel = false
+showSavedSearchPanel = true
 expandedQueries = [
 ]
 queryBuilder = false
