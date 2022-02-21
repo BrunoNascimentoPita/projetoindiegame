@@ -1,43 +1,61 @@
-using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI; 
 public sealed  class UIController : MonoBehaviour
 {
-    public CombatEntities combat;
-    [SerializeField]
-    private Slider _sliderXP;
-    [SerializeField]
-    private SpriteRenderer Weapon1;
-    [SerializeField]
-    private SpriteRenderer Weapon2; 
-    private Sprite SwordSprite;
-    private Sprite StaffSprite;
-    [SerializeField]
+    [SerializeField] private Slider _sliderXP;
+    [SerializeField] private GameObject _gameOverMessage,_canvas; 
+    [SerializeField] private SpriteRenderer[] _hearts; 
+    [SerializeField] private int _playerHearts = 3;
+
+    [SerializeField] private bool _ReadyToGameOver = true; 
+    
     private bool UsingSecondaryWeapon;
 
     void Start()
-    {
-        Enemy.GiveXP += AddXP; 
-        _sliderXP = GameObject.Find("Bar_XP_Controller").GetComponent<Slider>(); 
-        Player.OnWeaponChanged += ChangeWeaponImage; 
-    }
-    private  void ChangeWeaponImage() {
-        print("Arma Trocada");
-        UsingSecondaryWeapon = !UsingSecondaryWeapon;
-        if (UsingSecondaryWeapon) 
-        {
-            Weapon1.color = new Color(255, 255, 255, 100);
-            Weapon2.color = new Color32(255, 255, 255, 255);  
-        } else if (!UsingSecondaryWeapon)
-        {
-            Weapon2.color = new Color32(255, 255, 255, 100);
-            Weapon1.color = new Color32(255, 255, 255, 255);   
-        } 
+    {   
+        InitComponents();
+        InitEvents();
     }
 
-    private void AddXP()
+    private void LateUpdate()
     {
-        print("XP Adicionado");
-        _sliderXP.value += 1; 
+        if ((int)_sliderXP.value == (int)_sliderXP.maxValue)
+        {
+            print("Você upou de nível");
+            _sliderXP.value = 0; 
+        }
+    }
+
+    private void GiveXp(int xpValue)
+    {
+        _sliderXP.value += xpValue;
+    }
+
+    // private void RemoveHeart()
+    // {
+    //     _playerHearts -= 1; 
+    //     Destroy(_hearts[_playerHearts]);
+    // }
+
+    private void ShowGameOver()
+    {
+        if (_ReadyToGameOver)
+        {
+            _gameOverMessage.SetActive(true);
+            print("O Jogador morreu");
+            _ReadyToGameOver = false; 
+        }
+    }
+
+    private void InitComponents()
+    {
+        _canvas = GameObject.Find("Canvas");
+    }
+    private void InitEvents() 
+    {
+        Enemy.OnEnemyDied += GiveXp;
+        CombatFunctions.OnPlayerDead += ShowGameOver; 
+        //EventManager.DamagePlayer += RemoveHeart;
     }
 }

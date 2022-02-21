@@ -1,19 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public sealed class AttackArea : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject Obj; 
+    [SerializeField] private GameObject Obj; 
 
-    public delegate void Damage(string tagOBJ); 
+    public delegate void Damage(GameObject obj); 
     public static event Damage OnDealDamage;
     
     private void OnTriggerEnter2D(Collider2D other) 
     {
         Obj = other.gameObject;
-        print("Alguem foi acertado");
-        if (OnDealDamage != null) OnDealDamage(Obj.tag);
+        if (OnDealDamage != null) 
+        {
+            OnDealDamage(Obj);
+            print("Algo Atingido");
+        } else if (OnDealDamage == null){
+            print("Evento não encontrado");
+        }
+        Obj = null; 
     }
 }

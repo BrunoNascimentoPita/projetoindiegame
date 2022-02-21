@@ -1,13 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements; 
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]private Slider Slider; 
     void Start()
-    { 
+    {
+        
         Application.targetFrameRate = 60; // Limita o FPS a 60 quadros por segundo 
     }
+
+    public void LoadScene2()
+    {
+        SceneManager.LoadScene("TAttack"); 
+    } 
 }

@@ -1,24 +1,30 @@
 using UnityEngine;
-
 public class CombatEntities : MonoBehaviour
 {
-    private  protected bool BoxState; 
-    private  protected float Speed;
-    [SerializeField]
-    private  protected int Life;
-    private  protected Transform T; 
-    private  protected Rigidbody2D Rb;
-    private  protected Animator Ani;
+    [SerializeField] private  protected bool BoxState; 
+    [SerializeField] private  protected float Speed;
+    [SerializeField] internal int Life;
+    [SerializeField] private  protected Transform T; 
+    [SerializeField] private  protected Rigidbody2D Rb;
+    [SerializeField] private  protected Animator Ani;
     [SerializeField] private  protected BoxCollider2D AttackBox; 
 }
 public abstract class CombatFunctions : CombatEntities  
 {
-    private protected virtual void InitComponentsAndVariables() {
+    private static readonly int IsHurt = Animator.StringToHash("IsHurt");
+    private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
+
+    public delegate void OnEntitieDead();
+    public static event OnEntitieDead OnPlayerDead; 
+    
+    private protected virtual void InitComponentsAndVariables() 
+    {
         Rb = GetComponent<Rigidbody2D>();
         T = GetComponent<Transform>();
         Ani = GetComponent<Animator>();
     }
-    private protected virtual void InitComponentsAndVariables(float rangeAttack) {
+    private protected virtual void InitComponentsAndVariables(float rangeAttack) 
+    {
         Rb = GetComponent<Rigidbody2D>();
         T = GetComponent<Transform>();
         Ani = GetComponent<Animator>(); 
@@ -26,30 +32,21 @@ public abstract class CombatFunctions : CombatEntities
 
     private protected void TakeDamage()
     {
-        Ani.SetTrigger("IsHurt");
-        print("O "+gameObject.name+ " levou 1 de dano");
-        Life -= 1;
+        if (Ani != null) Ani.SetTrigger(IsHurt);
+        Life -= 1; 
     }
 
     private protected void Attack()
     {
-        Ani.SetTrigger("IsAttacking");
-    }
-
-    private void AttackBoxToggle()
-    {
-        BoxState = !BoxState; 
-        AttackBox.enabled = BoxState;
+        Ani.SetTrigger(IsAttacking);
     }
 
     private protected virtual void Die()
     {
-        Ani.speed = 0;
-        if (GetComponent<Player>() == null)
+        if (CompareTag("Player"))
         {
-            GetComponent<LBandit>().enabled = false;
-            Rb.simulated = false;
-            GetComponent<BoxCollider2D>().enabled = false;
-        }
+            if (OnPlayerDead != null) OnPlayerDead();
+        } 
+        Destroy(gameObject);
     }
 } 

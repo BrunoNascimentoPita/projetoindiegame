@@ -3,16 +3,19 @@ public sealed class Player : CombatFunctions
 {
     private int _jumpForce;
     internal bool OnGrounded = true;
+    private static readonly int IsStopped = Animator.StringToHash("IsStopped");
+    private static readonly int IsDead = Animator.StringToHash("IsDead");
 
     public delegate void ChangeWeapon(); 
     public static event ChangeWeapon OnWeaponChanged; 
     
+    public delegate void EntitieDead();
+
     private void Start()
     {
         InitComponentsAndVariables();
         EventManager.DamagePlayer += TakeDamage; 
     }
-    
     private void Update()
     {
         Move();
@@ -27,20 +30,19 @@ public sealed class Player : CombatFunctions
             ToggleWeapon();
         }
     }
-    
     private void LateUpdate()
     {
         if (Rb.velocity.x == 0)
         {
-            Ani.SetBool("IsStopped", true);
+            Ani.SetBool(IsStopped, true);
         }
         else if(Rb.velocity.x != 0)
         {
-            Ani.SetBool("IsStopped", false);
+            Ani.SetBool(IsStopped, false);
         }
-        if (Life == 0)
+        if (Life <= 0)
         {
-            Ani.SetBool("IsDead", true);
+            Ani.SetBool(IsDead, true);
         } 
     }
     private void Move(){
@@ -63,7 +65,7 @@ public sealed class Player : CombatFunctions
     {
         base.InitComponentsAndVariables();
         Speed = 5;
-        Life = 5;
+        Life = 3;   
         _jumpForce = 200;
     }
     private void ToggleWeapon()
