@@ -1,22 +1,22 @@
 using UnityEngine;
-public class Enemy : CombatFunctions
+public class Enemy : CombatEntities
 {
     private protected int XpValue = 1; 
     private protected float RangeAttack;
     private protected float DistanceToTarget;
-    private protected bool OnRange;
+    private protected bool OnVision;
     protected Vector2 PlayerPosition;
 
-    public delegate void OnDead(int value);  
-    public static event OnDead OnEnemyDied; 
     private protected void SearchPlayer() {
         try{
             PlayerPosition = GameObject.FindWithTag("Player").GetComponent<Transform>().position;
-        } catch {
-            print("O jogador provavelmente morreu");
+        } 
+        catch {
+            print("The Player isn't active in Scene");
         }
+
         DistanceToTarget = Vector2.Distance(T.localPosition, PlayerPosition);
-        if (DistanceToTarget < RangeAttack) OnRange = true;
+        if (DistanceToTarget < RangeAttack) OnVision = true;
     }
     private protected void Move()
     {
@@ -32,10 +32,5 @@ public class Enemy : CombatFunctions
     private protected void Flip(int x)
     {
         T.localScale = new Vector2(x, 1); 
-    }
-    private protected override void Die()
-    {
-        base.Die();
-        if (OnEnemyDied != null) OnEnemyDied(XpValue);
     }
 }

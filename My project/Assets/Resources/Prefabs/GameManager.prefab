@@ -58,4 +58,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad6862e1def24549b0579171dd523bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _spawnPoint: {fileID: 0}
+  _lightEnemy: {fileID: 6083674686030711926, guid: b68f647eb21fd894fb0dfbe8b5ade3be, type: 3}

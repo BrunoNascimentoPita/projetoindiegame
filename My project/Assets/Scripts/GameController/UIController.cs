@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI; 
 public sealed  class UIController : MonoBehaviour
@@ -12,10 +11,9 @@ public sealed  class UIController : MonoBehaviour
     
     private bool UsingSecondaryWeapon;
 
-    void Start()
+    void Start()    
     {   
         InitComponents();
-        InitEvents();
     }
 
     private void LateUpdate()
@@ -51,11 +49,5 @@ public sealed  class UIController : MonoBehaviour
     private void InitComponents()
     {
         _canvas = GameObject.Find("Canvas");
-    }
-    private void InitEvents() 
-    {
-        Enemy.OnEnemyDied += GiveXp;
-        CombatFunctions.OnPlayerDead += ShowGameOver; 
-        //EventManager.DamagePlayer += RemoveHeart;
     }
 }
