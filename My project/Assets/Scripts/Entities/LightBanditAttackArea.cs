@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class LightBanditAttackArea : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int damageValue; 
+    private GameObject objHit;
+
+    public delegate void _DealDamage(int damageValue);
+    public static event _DealDamage DealDamagePlayer;  
+   
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        objHit = other.gameObject;
+        if (objHit.CompareTag("Player")) {
+            if (DealDamagePlayer != null)
+            {
+                DealDamagePlayer(damageValue);
+                print("O Jogador foi atingido"); 
+            }  
+        }
+        objHit = null; 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void LateUpdate() {
+        damageValue = GetComponentInParent<LBandit>()._damageValue; 
     }
 }

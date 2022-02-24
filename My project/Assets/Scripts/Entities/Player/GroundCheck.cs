@@ -11,22 +11,18 @@ public sealed class GroundCheck : MonoBehaviour
         _player = GameObject.FindWithTag("Player").GetComponent<Player>(); 
     }
 
-    private void Update()
-    {
-        _player.OnGrounded = _onGround; 
-    }
-
     private void OnTriggerStay2D(Collider2D col){
         if (col.gameObject.CompareTag("Ground"))
         {
-            _onGround = true; 
+            print("O Jogador está no chao"); 
+            _player.OnGrounded = true; 
         }
     }
     private void OnTriggerExit2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Ground"))
         {
-            _onGround = false; 
+            _player.OnGrounded = false; 
         }
     }
 }

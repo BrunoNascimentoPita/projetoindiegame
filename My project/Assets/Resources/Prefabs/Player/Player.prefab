@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3947908625921785526}
   - component: {fileID: 3947908625921785521}
   - component: {fileID: 3947908625921785520}
-  - component: {fileID: 3947908625921785523}
   - component: {fileID: 4634598997845772166}
   - component: {fileID: 3947908625921785522}
+  - component: {fileID: 1338151665}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ae297123f091bbf4e8f1835eb98fb293, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -111,32 +111,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &3947908625921785523
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3947908625921785533}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.045592785, y: 0.6980424}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 3.125, y: 1.71875}
-    newSize: {x: 3.125, y: 1.71875}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.84536743, y: 1.2228446}
-  m_EdgeRadius: 0
 --- !u!95 &4634598997845772166
 Animator:
   serializedVersion: 4
@@ -169,13 +143,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2d37a8c0e64da4998add02783841f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoxState: 0
-  Speed: 0
-  Life: 3
+  _jumpForce: 0
+  _speed: 0
+  _life: 0
+  _rangeAttack: 0
   T: {fileID: 0}
   Rb: {fileID: 0}
   Ani: {fileID: 0}
   AttackBox: {fileID: 7188661289804252218}
+  BoxState: 0
+  _damageValue: 0
+  OnGrounded: 0
+--- !u!70 &1338151665
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3947908625921785533}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03447795, y: 0.72146267}
+  m_Size: {x: 0.49087572, y: 1.1850339}
+  m_Direction: 0
 --- !u!1 &4821626960241871339
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,4 +302,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff11d76ec53da84b99a976e4c2a77e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obj: {fileID: 0}

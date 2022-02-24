@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6083674686030711922}
   - component: {fileID: 6083674686030711923}
   - component: {fileID: 6083674686030711920}
-  - component: {fileID: 6083674686030711921}
   - component: {fileID: 6083674686030711933}
   - component: {fileID: 4122939939850335364}
+  - component: {fileID: 7257596209079296579}
   m_Layer: 0
   m_Name: Bandido Leve
   m_TagString: Enemy
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300008, guid: f2ed27d6c1c3ccc48959bcca269d88f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -110,32 +110,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &6083674686030711921
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6083674686030711926}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.04527557, y: 0.6213097}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.5, y: 1.5}
-    newSize: {x: 1.5, y: 1.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.78107095, y: 1.0700921}
-  m_EdgeRadius: 0
 --- !u!114 &6083674686030711933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,13 +122,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72334d6ee69dbc4382d02412d09bae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoxState: 0
-  Speed: 0
-  Life: 0
+  _jumpForce: 0
+  _speed: 0
+  _life: 0
+  _rangeAttack: 0
   T: {fileID: 0}
   Rb: {fileID: 0}
   Ani: {fileID: 0}
   AttackBox: {fileID: 8210586174698192668}
+  BoxState: 0
+  DistanceToTarget: 0
   _attackSpeed: 2
 --- !u!95 &4122939939850335364
 Animator:
@@ -176,6 +153,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &7257596209079296579
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6083674686030711926}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.048992395, y: 0.61935437}
+  m_Size: {x: 0.5528188, y: 1.0754015}
+  m_Direction: 0
 --- !u!1 &7464798083926239050
 GameObject:
   m_ObjectHideFlags: 0

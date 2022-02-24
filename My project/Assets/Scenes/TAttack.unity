@@ -1300,7 +1300,7 @@ PrefabInstance:
     - target: {fileID: 266489820, guid: 5a88d02e6b0009e4386be1a75be57051, type: 3}
       propertyPath: _lightEnemy
       value: 
-      objectReference: {fileID: 6083674686030711926, guid: 60fd44c699eef0e4c893356da6b20e2f, type: 3}
+      objectReference: {fileID: 6083674686030711926, guid: b68f647eb21fd894fb0dfbe8b5ade3be, type: 3}
     - target: {fileID: 266489820, guid: 5a88d02e6b0009e4386be1a75be57051, type: 3}
       propertyPath: _spawnPoint
       value: 

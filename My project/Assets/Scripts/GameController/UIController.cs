@@ -1,53 +1,27 @@
 using UnityEngine;
 using UnityEngine.UI; 
-public sealed  class UIController : MonoBehaviour
+public sealed class UIController : MonoBehaviour
 {
-    [SerializeField] private Slider _sliderXP;
-    [SerializeField] private GameObject _gameOverMessage,_canvas; 
-    [SerializeField] private SpriteRenderer[] _hearts; 
-    [SerializeField] private int _playerHearts = 3;
-
-    [SerializeField] private bool _ReadyToGameOver = true; 
+    [SerializeField] private Slider _healthSlider; 
+    private int _playerLife; 
     
-    private bool UsingSecondaryWeapon;
-
-    void Start()    
-    {   
-        InitComponents();
-    }
-
-    private void LateUpdate()
+    private void Awake()
     {
-        if ((int)_sliderXP.value == (int)_sliderXP.maxValue)
-        {
-            print("Você upou de nível");
-            _sliderXP.value = 0; 
-        }
+        Invoke("ShowBar",3F); 
     }
 
-    private void GiveXp(int xpValue)
+    private void ShowBar() 
+    {       
+        _playerLife = Player._Life;
+        _healthSlider.maxValue = _playerLife;
+        _healthSlider.enabled = true; 
+    }
+    private void Update()
     {
-        _sliderXP.value += xpValue;
+        _playerLife = Player._Life; 
     }
-
-    // private void RemoveHeart()
-    // {
-    //     _playerHearts -= 1; 
-    //     Destroy(_hearts[_playerHearts]);
-    // }
-
-    private void ShowGameOver()
+    private void LateUpdate() 
     {
-        if (_ReadyToGameOver)
-        {
-            _gameOverMessage.SetActive(true);
-            print("O Jogador morreu");
-            _ReadyToGameOver = false; 
-        }
-    }
-
-    private void InitComponents()
-    {
-        _canvas = GameObject.Find("Canvas");
-    }
+        _healthSlider.value = _playerLife;
+    } 
 }
