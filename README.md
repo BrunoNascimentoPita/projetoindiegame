@@ -2,7 +2,7 @@
 Game Indie Project
 
 # History
-Em desenvolvimento
+Under development
 
 # Genre
 MetroidVania, 2D pixelART, RPG
