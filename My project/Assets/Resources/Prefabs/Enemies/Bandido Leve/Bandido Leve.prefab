@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5982984130445119320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 719232141670179235}
+  m_Layer: 0
+  m_Name: RayPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &719232141670179235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5982984130445119320}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.343, y: 0.333, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6083674686030711922}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6083674686030711926
 GameObject:
   m_ObjectHideFlags: 0
@@ -34,6 +65,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 962263971411146344}
+  - {fileID: 719232141670179235}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -123,16 +155,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpForce: 0
+  _lifeActual: 0
+  _lifeMax: 0
+  _damageValue: 0
   _speed: 0
-  _life: 0
   _rangeAttack: 0
+  _attackSpeed: 2
   T: {fileID: 0}
   Rb: {fileID: 0}
   Ani: {fileID: 0}
   AttackBox: {fileID: 8210586174698192668}
-  BoxState: 0
+  XpValue: 1
   DistanceToTarget: 0
-  _attackSpeed: 2
+  OnVision: 0
+  OnMoving: 0
+  ActualPlayerPosition: {x: 0, y: 0}
+  LastPlayerPosition: {x: 0, y: 0}
+  RayPoint: {fileID: 5982984130445119320}
+  RayPointPosition: {fileID: 0}
+  raySize: 0
+  raySentido: 0
 --- !u!95 &4122939939850335364
 Animator:
   serializedVersion: 4
@@ -240,3 +282,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b90f6122843a5264abf9f8da6ed2ab20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageValue: 0

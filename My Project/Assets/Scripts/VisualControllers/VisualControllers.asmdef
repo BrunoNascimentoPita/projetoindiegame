@@ -1,0 +1,16 @@
+{
+    "name": "VisualControllers",
+    "rootNamespace": "",
+    "references": [
+        "GUID:60b5b7957c9c4f3448c2d2237dbe6f68"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/TMovement.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/TPlayerPrefs.unity
-    guid: 6d9c82924b892074e8a351320fbe207e
+    path: Assets/Scenes/Stage 1b.unity
+    guid: ef58f3905372eac4a887e419e72fc2ee
+  - enabled: 1
+    path: Assets/Scenes/Stage 2b.unity
+    guid: da0f8ed5cd6ede149ab2a4e4e1bf1377
   m_configObjects: {}

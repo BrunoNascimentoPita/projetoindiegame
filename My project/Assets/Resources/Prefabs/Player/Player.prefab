@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3947908625921785521}
   - component: {fileID: 3947908625921785520}
   - component: {fileID: 4634598997845772166}
-  - component: {fileID: 3947908625921785522}
   - component: {fileID: 1338151665}
+  - component: {fileID: 9084150073190240222}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -131,29 +131,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3947908625921785522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3947908625921785533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce2d37a8c0e64da4998add02783841f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _jumpForce: 0
-  _speed: 0
-  _life: 0
-  _rangeAttack: 0
-  T: {fileID: 0}
-  Rb: {fileID: 0}
-  Ani: {fileID: 0}
-  AttackBox: {fileID: 7188661289804252218}
-  BoxState: 0
-  _damageValue: 0
-  OnGrounded: 0
 --- !u!70 &1338151665
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -170,6 +147,28 @@ CapsuleCollider2D:
   m_Offset: {x: -0.03447795, y: 0.72146267}
   m_Size: {x: 0.49087572, y: 1.1850339}
   m_Direction: 0
+--- !u!114 &9084150073190240222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3947908625921785533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce2d37a8c0e64da4998add02783841f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpForce: 0
+  _lifeActual: 0
+  _lifeMax: 5
+  _damageValue: 1
+  _speed: 3
+  _attackSpeed: 1
+  Rb: {fileID: 3947908625921785520}
+  Ani: {fileID: 4634598997845772166}
+  AttackBox: {fileID: 7188661289804252218}
+  _groundCheckPos: {fileID: 0}
 --- !u!1 &4821626960241871339
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,12 +178,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5720659419553371860}
-  - component: {fileID: 3802111870606449038}
-  - component: {fileID: 615270335841376790}
+  - component: {fileID: 8414190051102135992}
   m_Layer: 0
   m_Name: groundCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -203,7 +201,7 @@ Transform:
   m_Father: {fileID: 3947908625921785526}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &3802111870606449038
+--- !u!58 &8414190051102135992
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,19 +216,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.05
---- !u!114 &615270335841376790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4821626960241871339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 443d06af37117f84c8cb1cb52311ad46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Radius: 0.08
 --- !u!1 &4854816126598093709
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +227,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3519107229024943958}
   - component: {fileID: 7188661289804252218}
-  - component: {fileID: 3990089686968823221}
   m_Layer: 0
   m_Name: attackArea
   m_TagString: Untagged
@@ -290,15 +275,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9915583, y: 1.1897913}
   m_EdgeRadius: 0
---- !u!114 &3990089686968823221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4854816126598093709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff11d76ec53da84b99a976e4c2a77e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
