@@ -1,16 +1,18 @@
 using UnityEngine;
 namespace WindRose.PlayerContent
 {
-    public class Player : MonoBehaviour
+    public sealed class Player : MonoBehaviour
     {
         [Header("Atributos")]
-        [SerializeField] private int _jumpForce, _lifeActual, _lifeMax;
-        [SerializeField] private int _damageValue;
-        [SerializeField] private float _speed, _attackSpeed;
+        [SerializeField] int _jumpForce;
+        [SerializeField] int _lifeActual, _lifeMax;
+        [SerializeField] int _damageValue;
+        [SerializeField] float _speed, _attackSpeed;
         [Header("Componentes")]
-        [SerializeField] Rigidbody2D Rb;
-        [SerializeField] Animator Ani;
-        [SerializeField] BoxCollider2D AttackBox;
+        [SerializeField] Transform _t;
+        [SerializeField] Rigidbody2D _rb;
+        [SerializeField] Animator _ani;
+        [SerializeField] BoxCollider2D _attackBox;
 
         public static bool OnGrounded;
         private static readonly int IsStopped = Animator.StringToHash("IsStopped");
@@ -19,7 +21,8 @@ namespace WindRose.PlayerContent
 
         void Start()
         {
-            print("O Jogador está na cena");
+            PlayerDataBase Data = new();
+            _lifeMax = Data.MAXLIFE;
         }
         void Update()
         {
@@ -29,7 +32,7 @@ namespace WindRose.PlayerContent
                 Jump();
 
             if (Input.GetKeyDown(KeyCode.F) && OnGrounded)
-                Ani.SetTrigger("IsAttacking");
+                _ani.SetTrigger("IsAttacking");
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
@@ -40,31 +43,45 @@ namespace WindRose.PlayerContent
 
         void LateUpdate()
         {
-            if (Rb.velocity.x == 0)
-                Ani.SetBool(IsStopped, true);
+            if (_rb.velocity.x == 0)
+                _ani.SetBool(IsStopped, true);
             else if
-                (Rb.velocity.x != 0) Ani.SetBool(IsStopped, false);
+                (_rb.velocity.x != 0) _ani.SetBool(IsStopped, false);
             Life = _lifeActual;
         }
+
 
         void Move()
         {
             float xMovement = Input.GetAxisRaw("Horizontal");
-            Vector2 yMovement = new(0, Rb.velocity.y);
-            Rb.velocity = new Vector2(_speed * xMovement, yMovement.y);
+            Vector2 yMovement = new(0, _rb.velocity.y);
+            _rb.velocity = new Vector2(_speed * xMovement, yMovement.y);
 
             if (xMovement != 0)
                 Flip((int)xMovement);
         }
 
-        void Jump()
+        void Flip(int XValue)
         {
-            Rb.AddForce(new Vector2(0, _jumpForce));
+            transform.localScale = new Vector3(XValue, 1, 1);
         }
 
-        void Flip(int direction)
+        void Jump()
         {
-            transform.localScale = new Vector3(direction, 1, 1);
+            _rb.AddForce(new Vector2(0, _jumpForce));
         }
+
+
+    }
+    [System.Serializable]
+    class PlayerDataBase
+    {
+        public int MAXLIFE = 5;
+        public int SPEED = 3;
+        public float JUMPFORCE = 200;
+    }
+    class PlayerFunctions
+    {
+
     }
 }

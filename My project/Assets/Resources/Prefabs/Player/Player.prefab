@@ -156,19 +156,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3947908625921785533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce2d37a8c0e64da4998add02783841f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 316e4f9a2755e3949973276a19536d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpForce: 0
   _lifeActual: 0
-  _lifeMax: 5
-  _damageValue: 1
-  _speed: 3
-  _attackSpeed: 1
-  Rb: {fileID: 3947908625921785520}
-  Ani: {fileID: 4634598997845772166}
-  AttackBox: {fileID: 7188661289804252218}
-  _groundCheckPos: {fileID: 0}
+  _lifeMax: 0
+  _damageValue: 0
+  _speed: 0
+  _attackSpeed: 0
+  _t: {fileID: 0}
+  _rb: {fileID: 3947908625921785520}
+  _ani: {fileID: 4634598997845772166}
+  _attackBox: {fileID: 7188661289804252218}
 --- !u!1 &4821626960241871339
 GameObject:
   m_ObjectHideFlags: 0
