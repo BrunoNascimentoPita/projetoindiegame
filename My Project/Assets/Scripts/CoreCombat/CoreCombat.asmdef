@@ -1,3 +1,16 @@
 {
-	"name": "CoreCombat"
+    "name": "CoreCombat",
+    "rootNamespace": "",
+    "references": [
+        "GUID:40cc6c61baf386440a4ba4fb23e7d71e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
