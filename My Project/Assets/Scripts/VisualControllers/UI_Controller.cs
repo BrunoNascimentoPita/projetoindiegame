@@ -13,7 +13,7 @@ namespace WindRose.UI
         }
         void LateUpdate()
         {
-            lifeSlider.value = WindRose.PlayerContent.Player.Life;
+            lifeSlider.value = CoreCombat.PlayerContent.Player.Life;
         }
     }
 }

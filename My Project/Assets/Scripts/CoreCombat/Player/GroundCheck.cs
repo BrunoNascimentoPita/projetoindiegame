@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace WindRose.PlayerContent.GroundCheck
+namespace WindRose.CoreCombat.PlayerContent.GroundCheck
 {
     public sealed class GroundCheck : MonoBehaviour
     {

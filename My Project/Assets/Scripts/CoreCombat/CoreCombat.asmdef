@@ -1,8 +1,8 @@
 {
     "name": "CoreCombat",
-    "rootNamespace": "",
+    "rootNamespace": "WindRose.CoreCombat",
     "references": [
-        "GUID:40cc6c61baf386440a4ba4fb23e7d71e"
+        "GUID:184c76cab35394c418019e29e2ee9a17"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
