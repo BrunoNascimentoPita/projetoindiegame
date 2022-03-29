@@ -1,3 +1,5 @@
+using System;
+using System.Collections; 
 using UnityEngine;
 namespace WindRose.CoreCombat.PlayerContent
 {
@@ -8,6 +10,7 @@ namespace WindRose.CoreCombat.PlayerContent
         [SerializeField] int _lifeActual, _lifeMax;
         [SerializeField] int _damageValue;
         [SerializeField] float _speed, _attackSpeed;
+        [SerializeField] float _dashSize; 
         [Header("Valores Globais")]
         public static int _xp;
         [Header("Componentes")]
@@ -16,39 +19,47 @@ namespace WindRose.CoreCombat.PlayerContent
         [SerializeField] Animator _ani;
         [SerializeField] BoxCollider2D _attackBox;
         [SerializeField] PlayerValues PlayerDataBase;
-        [Header("Tempos de Ação")]
+        [SerializeField] SpriteRenderer _playerSprite;
+        [Header("Tempos de AÃ§ao")]
         [SerializeField] bool ComboTime;
-
+        [SerializeField] float attackCoolDown;
+        [SerializeField] float skillCoolDown;
+        [Header("Variaveis Auxiliares")]
+        [SerializeField] bool OnFacingLeft; 
         public static bool OnGrounded;
+
+
         private static readonly int IsStop = Animator.StringToHash("IsStop");
 
         public static int Life;
 
-        [SerializeField] float attackCoolDown;
 
         void Start()
         {
             GetVariables();
         }
-
-
         void Update()
         {
 
             Move();
 
-            if (Input.GetKeyDown(KeyCode.Space) && OnGrounded)
-            {
+            if (OnGrounded && Input.GetKeyDown(KeyCode.Space))
                 Jump();
-            }
-
+            
             if (Input.GetKeyDown(KeyCode.F) && OnGrounded && attackCoolDown > _attackSpeed)
-            {
                 Attack();
-            }
+
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !OnFacingLeft) 
+                    StartCoroutine("Dash",1);
+                else if (Input.GetKeyDown(KeyCode.LeftShift) && OnFacingLeft)
+                    StartCoroutine("Dash",-1);
+
+            if(_rb.velocity.x > 0 ) 
+                _rb.gravityScale  = 2; 
+            
+            skillCoolDown += Time.deltaTime; 
             attackCoolDown += Time.deltaTime;
         }
-
         void LateUpdate()
         {
             if (_rb.velocity.x == 0)
@@ -62,9 +73,13 @@ namespace WindRose.CoreCombat.PlayerContent
             {
                 LevelUp();
             }
+            if (-transform.localScale.x < 0)
+                OnFacingLeft = true;
+            else 
+            {
+                OnFacingLeft = false; 
+            }
         }
-
-
         void Move()
         {
             float xMovement = Input.GetAxisRaw("Horizontal");
@@ -72,7 +87,7 @@ namespace WindRose.CoreCombat.PlayerContent
             _rb.velocity = new Vector2(_speed * xMovement, yMovement.y);
 
             if (xMovement != 0)
-                Flip((int)xMovement);
+                Flip((int)xMovement * -1);
         }
 
         void Flip(int XValue)
@@ -93,16 +108,23 @@ namespace WindRose.CoreCombat.PlayerContent
         void LevelUp()
         {
             _xp = 0;
-            gameObject.AddComponent<Power.Supernova_Conjuration>();
         }
         void GetVariables()
         {
             _lifeMax = PlayerDataBase.VidaMaxima;
             _lifeActual = _lifeMax;
-
             _speed = PlayerDataBase.Velocidade;
             _attackSpeed = PlayerDataBase.AtaqueVelocidade;
             _jumpForce = PlayerDataBase.ForcaPulo;
+            _dashSize = PlayerDataBase.EsquivaDistancia; 
+        }
+        
+        IEnumerator Dash(int DashDirection)
+        {
+            _playerSprite.color = new Color32(20, 255, 255, 255);
+            yield return new WaitForSeconds(0.5f); 
+            _t.transform.position = new(transform.position.x + _dashSize * DashDirection, transform.position.y, transform.position.z); 
+            _playerSprite.color = new Color32(255, 255, 255, 255);
         }
     }
 }

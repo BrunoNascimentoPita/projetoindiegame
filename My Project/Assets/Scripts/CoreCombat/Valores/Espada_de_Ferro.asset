@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e8caeaff2476d04690eca6280d4b345, type: 3}
-  m_Name: Jogador
+  m_Script: {fileID: 11500000, guid: b309f4ca14957be40a59e2613414fcca, type: 3}
+  m_Name: Espada_de_Ferro
   m_EditorClassIdentifier: 
-  Velocidade: 5
-  AtaqueVelocidade: 1
-  ForcaPulo: 500
-  VidaMaxima: 5
-  EsquivaDistancia: 5
+  Dano: 1

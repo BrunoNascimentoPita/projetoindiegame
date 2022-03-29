@@ -4,5 +4,8 @@ namespace WindRose.CoreCombat.EnemyBase.Goblin
     public class GoblinValues : UnityEngine.ScriptableObject
     {
         public int Vida;
+        public int AreadeAtaque;
+        public int Velocidade;
+        public int Velocidade_De_Ataque;
     }
 }

@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: GoblinDefalt
   m_EditorClassIdentifier: 
   Vida: 2
+  AreadeAtaque: 3
+  Velocidade: 2
+  Velocidade_De_Ataque: 3

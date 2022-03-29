@@ -9,5 +9,6 @@ namespace WindRose.CoreCombat.PlayerContent
         public float AtaqueVelocidade;
         public int ForcaPulo;
         public int VidaMaxima;
+        public float EsquivaDistancia; 
     }
 }
