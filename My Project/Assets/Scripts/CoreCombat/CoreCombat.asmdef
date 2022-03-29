@@ -1,3 +1,16 @@
 {
-	"name": "CoreCombat"
+    "name": "CoreCombat",
+    "rootNamespace": "WindRose.CoreCombat",
+    "references": [
+        "GUID:184c76cab35394c418019e29e2ee9a17"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

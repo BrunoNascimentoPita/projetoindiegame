@@ -1,6 +1,6 @@
 {
     "name": "VisualControllers",
-    "rootNamespace": "",
+    "rootNamespace": "WindRose",
     "references": [
         "GUID:60b5b7957c9c4f3448c2d2237dbe6f68"
     ],
