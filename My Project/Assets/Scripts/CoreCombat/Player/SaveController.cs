@@ -25,7 +25,7 @@ namespace WindRose.PlayerContent
 
         public void UpdateChanges()
         {
-            string saveData = JsonUtility.ToJson(_playerData, true); // Escreve as mudanças com os dados da instancia _playerData
+            string saveData = JsonUtility.ToJson(_playerData, true); // Escreve as mudanï¿½as com os dados da instancia _playerData
             File.WriteAllText(pathPlayerData, saveData);
         }
 
